@@ -12,7 +12,7 @@ provider "google" {
 resource "google_container_cluster" "primary" {
   name               = "lizhang-gke-cluster"
   zone               = "${var.region}"
-  initial_node_count = 3
+  initial_node_count = 1
 
   master_auth {
     username = ""
