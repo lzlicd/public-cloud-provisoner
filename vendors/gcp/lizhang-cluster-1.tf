@@ -1,14 +1,21 @@
+//------------------------------------------------------------
+// Define your cluster name
 variable "cluster-name" {
   default = "lizhang-cluster-1"
 }
 
+// Define your cluster region
 variable "cluster-region" {
   default = "us-central1-a"
 }
 
+// Define how many nodes in your cluster
 variable "cluster-node-count" {
   default = "2"
 }
+//------------------------------------------------------------
+
+  
 
 // Configure the Google Cloud provider
 provider "google" {
