@@ -1,5 +1,5 @@
 variable "cluster-name" {
-  default = "lizhang-gke-cluster"
+  default = "lizhang-cluster-1"
 }
 
 variable "cluster-region" {
@@ -7,7 +7,7 @@ variable "cluster-region" {
 }
 
 variable "cluster-node-count" {
-  default = "1"
+  default = "2"
 }
 
 // Configure the Google Cloud provider
