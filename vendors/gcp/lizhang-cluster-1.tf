@@ -1,18 +1,26 @@
-variable "region" {
+variable "cluster-name" {
+  default = "lizhang-gke-cluster"
+}
+
+variable "cluster-region" {
   default = "us-central1-a"
+}
+
+variable "cluster-node-count" {
+  default = "1"
 }
 
 // Configure the Google Cloud provider
 provider "google" {
   credentials = "${file("account.json")}"
   project     = "my-project-06052018"
-  region      = "${var.region}"
+  region      = "${var.cluster-region}"
 }
 
 resource "google_container_cluster" "primary" {
-  name               = "lizhang-gke-cluster"
-  zone               = "${var.region}"
-  initial_node_count = 1
+  name               = "${var.cluster-name}"
+  zone               = "${var.cluster-region}"
+  initial_node_count = "${var.cluster-node-count}"
 
   master_auth {
     username = ""
@@ -33,17 +41,4 @@ resource "google_container_cluster" "primary" {
 
     tags = ["foo", "bar"]
   }
-}
-
-# The following outputs allow authentication and connectivity to the GKE Cluster.
-output "client_certificate" {
-  value = "${google_container_cluster.primary.master_auth.0.client_certificate}"
-}
-
-output "client_key" {
-  value = "${google_container_cluster.primary.master_auth.0.client_key}"
-}
-
-output "cluster_ca_certificate" {
-  value = "${google_container_cluster.primary.master_auth.0.cluster_ca_certificate}"
 }
