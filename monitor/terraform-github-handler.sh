@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd /Users/lizhang.li/lzlicd/public-cloud-provisoner/
-
 while :
 do
 	echo "git pull"
