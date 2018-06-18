@@ -6,7 +6,7 @@ variable "cluster-name" {
 
 // Define your cluster region
 variable "cluster-region" {
-  default = "us-west1-a"
+  default = "us-central1-a"
 }
 
 // Define how many nodes in your cluster
