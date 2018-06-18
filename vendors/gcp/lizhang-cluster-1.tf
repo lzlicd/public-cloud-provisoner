@@ -11,7 +11,7 @@ variable "cluster-region" {
 
 // Define how many nodes in your cluster
 variable "cluster-node-count" {
-  default = "2"
+  default = "3"
 }
 //------------------------------------------------------------
 
